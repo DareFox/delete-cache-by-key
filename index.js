@@ -59,7 +59,7 @@ async function attempts(max, delayMs, func) {
                 await delayMs(delayMs)
             }
 
-            func()
+            await func()
             break
         } catch (err) {
             if (attempt + 1 == max) {
