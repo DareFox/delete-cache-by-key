@@ -63,6 +63,10 @@ async function attempts(max, delayMs, func) {
             break
         } catch (err) {
             if (attempt + 1 == max) {
+                if (err.status === 403) {
+                    core.warning("Request is forbidden. Have you forgotten to add necessary 'actions: write' permission for this action?")
+                }
+
                 core.setFailed(err)
             }
         }
