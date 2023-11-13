@@ -35,10 +35,10 @@ jobs:
   
   test-startsWith-key:
     runs-on: ubuntu-latest
-    name: Test exact key mode
+    name: Test startsWith mode
     needs: [cache-starts-with-key]
     steps:
-      - name: Delete cache with exact key
+      - name: Delete cache that starts with 'starts-with-'
         id: hello
         uses: DareFox/delete-cache-by-key@main
         with:
