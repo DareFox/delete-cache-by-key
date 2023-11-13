@@ -1,5 +1,6 @@
 on: [push, workflow_dispatch]
-
+permissions:
+  actions: write
 jobs:
   cache-exact-key:
     runs-on: ubuntu-latest
