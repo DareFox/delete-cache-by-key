@@ -1,0 +1,16 @@
+name: 'Delete Cache by key'
+description: 'Delete Github Action cache by provided key'
+inputs:
+  key:
+    description: 'Key to use'
+    required: true
+  mode:
+    description: 'Mode to select cache. Supported modes: exact, startsWith'
+    required: true
+  attempts: 
+    description: 'How many tries should action take before throwing error. Number.'
+  delay: 
+    description: 'Milliseconds of delay between attempts. Number.'
+runs:
+  using: 'node20'
+  main: 'index.js'
