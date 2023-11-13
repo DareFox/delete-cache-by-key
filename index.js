@@ -90,7 +90,7 @@ attempts(Inputs.attempts, Inputs.delay, async () => {
     } else if (Inputs.mode === Modes.StartsWith) {
         const keys = await getAllKeys(Inputs.key)
         core.info(`Keys that starts with ${Inputs.key}: `)
-        core.info(keys)
+        core.info(keys.join(", "))
 
         const promises = []
         for (const key of keys) {
