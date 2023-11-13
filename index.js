@@ -95,7 +95,7 @@ attempts(Inputs.attempts, Inputs.delay, async () => {
         const promises = []
         for (const key of keys) {
             core.info(`Deleting key ${key}`)
-            promises += deleteByExactKey(key)
+            promises.push(deleteByExactKey(key))
         }
         await Promise.all(promises)
     }
