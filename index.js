@@ -34,7 +34,7 @@ function deleteByExactKey(key) {
 
 /**
  * @param {string} key 
- * @returns {string[]}
+ * @returns {Promise<string[]>}
  */
 async function getAllKeys(key) {
     const result = await octokit.rest.actions.getActionsCacheList({
@@ -58,10 +58,10 @@ async function attempts(max, delayMs, func) {
                 core.warning(`Attempt ${attempt}. Delaying for ${delayMs}ms before start`)
                 await delayMs(delayMs)
             }
-            
+
             func()
             break
-        } catch(err) {
+        } catch (err) {
             if (attempt + 1 == max) {
                 core.setFailed(err)
             }
@@ -77,13 +77,14 @@ if (Object.values(Modes).includes(Inputs.mode) != true) {
     core.setFailed(`Invalid value (${Inputs.mode}) for argument 'mode'. Valid values: ${Object.values(Modes)}`)
 }
 
-attempts(Inputs.attempts, Inputs.delay, () => {
+attempts(Inputs.attempts, Inputs.delay, async () => {
     core.info("Mode: " + Inputs.mode)
+
     if (Inputs.mode === Modes.Exact) {
         core.info(`Deleting key ${Inputs.key}`)
-        deleteByExactKey(Inputs.key)
+        await deleteByExactKey(Inputs.key)
     } else if (Inputs.mode === Modes.StartsWith) {
-        const keys = getAllKeys(Inputs.key)
+        const keys = await getAllKeys(Inputs.key)
         core.info(`Keys that starts with ${Inputs.key}: `)
         core.info(keys)
 
@@ -92,5 +93,5 @@ attempts(Inputs.attempts, Inputs.delay, () => {
             deleteByExactKey(key)
         }
     }
-}) 
+})
 
