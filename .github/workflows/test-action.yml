@@ -1,0 +1,47 @@
+on: [push]
+
+jobs:
+  cache-exact-key:
+    runs-on: ubuntu-latest
+    name: Cache exact key
+    steps:
+      - name: Setup Konan cache
+        uses: actions/cache@v3
+        with:
+          path: .
+          key: exact-key
+
+  cache-starts-with-key:
+    runs-on: ubuntu-latest
+    name: Cache key with random id at the end
+    steps:
+      - name: Setup Konan cache
+        uses: actions/cache@v3
+        with:
+          path: .
+          key: starts-with-${{ github.run_id }}
+
+  test-exact-key:
+    runs-on: ubuntu-latest
+    name: Test exact key mode
+    needs: [cache-exact-key]
+    steps:
+      - name: Delete cache with exact key
+        id: hello
+        uses: DareFox/delete-cache-by-key@latest
+        with:
+          key: exact-key
+          mode: exact
+  
+  test-startsWith-key:
+    runs-on: ubuntu-latest
+    name: Test exact key mode
+    needs: [cache-starts-with-key]
+    steps:
+      - name: Delete cache with exact key
+        id: hello
+        uses: DareFox/delete-cache-by-key@latest
+        with:
+          key: starts-with-
+          mode: startsWith
+      
