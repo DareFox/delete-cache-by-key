@@ -1,0 +1,28 @@
+{
+  "name": "delete-cache-by-key",
+  "version": "1.0.0",
+  "description": "Delete Github Action cache by provided key",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DareFox/delete-cache-by-key.git"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "cache",
+    "rest",
+    "api",
+    "github",
+    "api"
+  ],
+  "author": "DareFox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DareFox/delete-cache-by-key/issues"
+  },
+  "homepage": "https://github.com/DareFox/delete-cache-by-key#readme"
+}
