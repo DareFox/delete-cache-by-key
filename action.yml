@@ -9,8 +9,10 @@ inputs:
     required: true
   attempts: 
     description: 'How many tries should action take before throwing error. Number.'
+    default: "1"
   delay: 
     description: 'Milliseconds of delay between attempts. Number.'
+    default: "2000"
   token:
     description: GITHUB_TOKEN to use
     default: ${{ github.token }}

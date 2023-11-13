@@ -9,8 +9,8 @@ const Modes = {
 const Inputs = {
     mode: core.getInput("mode"),
     key: core.getInput("key"),
-    attempts: parseInt(core.getInput("attempts") || "1"),
-    delay: parseInt(core.getInput("delay") || "2000"),
+    attempts: parseInt(core.getInput("attempts")),
+    delay: parseInt(core.getInput("delay")),
     token: core.getInput("token")
 }
 
