@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Cache exact key
     steps:
-      - name: Setup Konan cache
+      - name: Cache
         uses: actions/cache@v3
         with:
           path: .
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Cache key with random id at the end
     steps:
-      - name: Setup Konan cache
+      - name: Cache
         uses: actions/cache@v3
         with:
           path: .
