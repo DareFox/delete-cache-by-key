@@ -1,9 +1,21 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
+const Modes = {
+    Exact: "exact",
+    StartsWith: "startsWith"
+}
+
+const Inputs = {
+    mode: core.getInput("mode"),
+    key: core.getInput("key"),
+    attempts: parseInt(core.getInput("attempts") || "1"),
+    delay: parseInt(core.getInput("delay") || "2000"),
+    token: core.getInput("token")
+}
+
 const { owner, repo } = github.context.repo;
-const { GITHUB_TOKEN: token } = process.env
-const octokit = github.getOctokit(token)
+const octokit = github.getOctokit(Inputs.token)
 
 function delay(delayInms) {
     return new Promise(resolve => setTimeout(resolve, delayInms));
@@ -53,18 +65,6 @@ async function attempts(max, delayMs, func) {
             }
         }
     }
-}
-
-const Modes = {
-    Exact: "exact",
-    StartsWith: "startsWith"
-}
-
-const Inputs = {
-    mode: core.getInput("mode"),
-    key: core.getInput("key"),
-    attempts: parseInt(core.getInput("attempts") || "1"),
-    delay: parseInt(core.getInput("delay") || "2000"),
 }
 
 if (Inputs.key === "") {

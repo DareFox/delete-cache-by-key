@@ -11,6 +11,9 @@ inputs:
     description: 'How many tries should action take before throwing error. Number.'
   delay: 
     description: 'Milliseconds of delay between attempts. Number.'
+  token:
+    description: GITHUB_TOKEN to use
+    default: ${{ github.token }}
 runs:
   using: 'node20'
   main: 'index.js'
