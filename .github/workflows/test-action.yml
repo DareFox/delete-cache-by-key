@@ -4,6 +4,8 @@ on:
   schedule: 
     - cron: '0 12 * * 1,4'
 name: Test Github Action
+permissions:
+  actions: write
 jobs:
   cache-exact-key:
     runs-on: ubuntu-latest
