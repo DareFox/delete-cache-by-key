@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Delete cache with exact key
         id: hello
-        uses: DareFox/delete-cache-by-key@latest
+        uses: DareFox/delete-cache-by-key@main
         with:
           key: exact-key
           mode: exact
@@ -40,7 +40,7 @@ jobs:
     steps:
       - name: Delete cache with exact key
         id: hello
-        uses: DareFox/delete-cache-by-key@latest
+        uses: DareFox/delete-cache-by-key@main
         with:
           key: starts-with-
           mode: startsWith
