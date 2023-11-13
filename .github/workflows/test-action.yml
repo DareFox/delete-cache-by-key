@@ -38,10 +38,6 @@ jobs:
         with:
           key: exact-key
           mode: exact
-  
-      - name: Log permissions
-        run: 'curl -sS -f -I -H "Authorization: token ${{ github.token }}" https://api.github.com | grep -i x-oauth-scopes'
-        shell: bash
 
   test-startsWith-key:
     runs-on: ubuntu-latest
