@@ -63,8 +63,6 @@ async function attempts(max, delayMs, func) {
             break
         } catch (err) {
             if (attempt + 1 == max) {
-                core.debug(err)
-                core.debug(err.status)
                 if (err.status === 403) {
                     core.warning("Request is forbidden. Have you forgotten to add necessary 'actions: write' permission for this action?")
                 }
@@ -94,10 +92,12 @@ attempts(Inputs.attempts, Inputs.delay, async () => {
         core.info(`Keys that starts with ${Inputs.key}: `)
         core.info(keys)
 
+        const promises = []
         for (const key of keys) {
             core.info(`Deleting key ${key}`)
-            deleteByExactKey(key)
+            promises += deleteByExactKey(key)
         }
+        await Promise.all(promises)
     }
 })
 
