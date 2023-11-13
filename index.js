@@ -38,6 +38,8 @@ function deleteByExactKey(key) {
  */
 async function getAllKeys(key) {
     const result = await octokit.rest.actions.getActionsCacheList({
+        owner: owner,
+        repo: repo,
         key: key
     })
 
