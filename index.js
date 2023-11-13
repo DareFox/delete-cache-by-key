@@ -76,10 +76,15 @@ if (Object.values(Modes).includes(Inputs.mode) != true) {
 }
 
 attempts(Inputs.attempts, Inputs.delay, () => {
+    core.info("Mode: " + Inputs.mode)
     if (Inputs.mode === Modes.Exact) {
+        core.info(`Deleting key ${Inputs.key}`)
         deleteByExactKey(Inputs.key)
     } else if (Inputs.mode === Modes.StartsWith) {
         const keys = getAllKeys(Inputs.key)
+        core.info(`Keys that starts with ${Inputs.key}: `)
+        core.info(keys.join(", "))
+
         for (const key of keys) {
             core.info(`Deleting key ${key}`)
             deleteByExactKey(key)
