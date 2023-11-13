@@ -1,4 +1,5 @@
 on: [push, workflow_dispatch]
+name: Test Github Action
 permissions:
   actions: write
 jobs:
