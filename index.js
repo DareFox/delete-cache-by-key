@@ -85,7 +85,7 @@ attempts(Inputs.attempts, Inputs.delay, () => {
     } else if (Inputs.mode === Modes.StartsWith) {
         const keys = getAllKeys(Inputs.key)
         core.info(`Keys that starts with ${Inputs.key}: `)
-        core.info(keys.join(", "))
+        core.info(keys)
 
         for (const key of keys) {
             core.info(`Deleting key ${key}`)
