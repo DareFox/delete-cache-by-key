@@ -1,4 +1,8 @@
-on: [push, workflow_dispatch]
+on: 
+  push:
+  workflow_dispatch:
+  schedule: 
+    - cron: '0 12 * * 1,4'
 name: Test Github Action
 permissions:
   actions: write
