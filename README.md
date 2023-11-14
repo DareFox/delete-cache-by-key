@@ -49,7 +49,7 @@ How many tries should the action take before throwing an error.
 Default: 1
 
 ### `delay`
-Delay between trying again.
+Delay in ms between trying again.
 
 Default: 2000
 
