@@ -1,9 +1,5 @@
 on: 
-  push:
-  workflow_dispatch:
-  workflow_call:
-  schedule: 
-    - cron: '0 12 * * 1,4'
+  pull_request:
 name: Test Github Action
 permissions:
   actions: write
