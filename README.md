@@ -16,7 +16,7 @@ jobs:
     name: Delete cache
     steps:
       - name: Delete 'build-cache-' cache
-        uses: DareFox/delete-cache-by-key@v1
+        uses: DareFox/delete-cache-by-key@v1.0.0
         with:
           key: build-cache- 
           attempts: 3
