@@ -16,6 +16,11 @@ jobs:
     name: Delete cache
     steps:
       - name: Delete 'build-cache-' cache
+        uses: DareFox/delete-cache-by-key@v1.0.0
+        with:
+          key: build-cache- 
+          attempts: 3
+          mode: startsWith
 ```
 
 ## Inputs
@@ -44,7 +49,7 @@ How many tries should the action take before throwing an error.
 Default: 1
 
 ### `delay`
-Delay between trying again.
+Delay in ms between trying again.
 
 Default: 2000
 
