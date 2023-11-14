@@ -1,5 +1,4 @@
 # delete-cache-by-key
-[![Test Github Action](https://github.com/DareFox/delete-cache-by-key/actions/workflows/test-action.yml/badge.svg)](https://github.com/DareFox/delete-cache-by-key/actions/workflows/test-action.yml)
 [![Create release](https://github.com/DareFox/delete-cache-by-key/actions/workflows/create-release.yml/badge.svg)](https://github.com/DareFox/delete-cache-by-key/actions/workflows/create-release.yml)
 
 This GitHub Action deletes a GitHub Action cache with the provided key.
