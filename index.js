@@ -23,6 +23,7 @@ function delay(delayInms) {
 
 /**
  * @param {string} key 
+ * @returns {Promise<Any>}
  */
 function deleteByExactKey(key) {
     return octokit.rest.actions.deleteActionsCacheByKey({
