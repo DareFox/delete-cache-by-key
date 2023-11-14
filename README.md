@@ -3,6 +3,21 @@
 
 This GitHub Action deletes a GitHub Action cache with the provided key.
 
+## Example
+```yml
+on:
+  push:
+name: Delete cache that starts with 'build-cache-'
+permissions:
+  actions: write ## Important, action can't delete cache without permission
+jobs:
+  delete-cache:
+    runs-on: ubuntu-latest
+    name: Delete cache
+    steps:
+      - name: Delete 'build-cache-' cache
+```
+
 ## Inputs
 
 ### `key`
@@ -37,20 +52,6 @@ Default: 2000
 `GITHUB_TOKEN` to use for this action.
 
 Default: auto-generated `GITHUB_TOKEN` for the workflow.
-
-## Example
-```yml
-on:
-  push:
-name: Delete cache that starts with 'build-cache-'
-permissions:
-  actions: write ## Important, action can't delete cache without permission
-jobs:
-  delete-cache:
-    runs-on: ubuntu-latest
-    name: Delete cache
-    steps:
-      - name: Delete 'build-cache-' cache
         uses: DareFox/delete-cache-by-key@v1
         with:
           key: build-cache- 
