@@ -6,7 +6,7 @@ on:
         required: true
         default: true
         type: boolean
-name: Create release
+name: Test and publish
 permissions:
   actions: write
   contents: write
