@@ -57,8 +57,3 @@ Default: 2000
 `GITHUB_TOKEN` to use for this action.
 
 Default: auto-generated `GITHUB_TOKEN` for the workflow.
-        uses: DareFox/delete-cache-by-key@v1
-        with:
-          key: build-cache- 
-          attempts: 3
-          mode: startsWith
