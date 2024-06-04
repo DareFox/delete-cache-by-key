@@ -57,7 +57,7 @@ async function attempts(max, delayMs, func) {
         try {
             if (attempt != 0) {
                 core.warning(`Attempt ${attempt + 1} of #${max}. Delaying for ${delayMs}ms before start`)
-                await delayMs(delayMs)
+                await delay(delayMs)
             }
 
             await func()
